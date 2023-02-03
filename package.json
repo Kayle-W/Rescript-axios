@@ -1,7 +1,7 @@
 {
   "name": "@kaylew/rescript-axios",
   "version": "0.1.0",
-  "description": "A Js binding library of axios for rescript based on ",
+  "description": "A Js binding library of axios for rescript based on @ryyppy/rescript-promise",
   "main": "Axios.res",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

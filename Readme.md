@@ -6,9 +6,9 @@ Axios bindings for Rescript with @ryyppy/rescript-promise
 Requirements
 ---------------
 
-1.bs-platform@9.1.2 and above.
-2.axios@1.3.1 and above.
-3.@ryyppy/rescript-promise@2.1.0 and above
+1. bs-platform@9.1.2 and above.
+2. axios@1.3.1 and above.
+3. @ryyppy/rescript-promise@2.1.0 and above
 
 Installation
 ---------------
