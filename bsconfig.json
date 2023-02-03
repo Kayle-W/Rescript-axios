@@ -1,0 +1,18 @@
+{
+    "name": "@kaylew/rescript-axios",
+    "sources": [
+      {
+        "dir": "src",
+        "subdirs": true
+      }
+    ],
+    "package-specs": [
+      {
+        "module": "es6",
+        "in-source": false
+      }
+    ],
+    "suffix": ".bs.js",
+    "bs-dependencies": ["@ryyppy/rescript-promise"]
+  }
+  
