@@ -16,9 +16,9 @@ Installation
 ```
 npm i rescript axios @ryyppy/rescript-promise --save
 ```
-##### 2.Install @kayle/rescript-axios
+##### 2.Install @kaylew/rescript-axios
 ```
-npm i @kayle/rescript-axios --save
+npm i @kaylew/rescript-axios --save
 ```
 ##### 3.Add @ryyppy/rescript-promise and @kayle/rescript-axios as dependencies in your bsconfig.json:
 
@@ -27,7 +27,7 @@ npm i @kayle/rescript-axios --save
 {
   "bs-dependencies": [
     "@ryyppy/rescript-promise",
-    "@kayle/rescript-axios"
+    "@kaylew/rescript-axios"
   ]
 }
 ```
