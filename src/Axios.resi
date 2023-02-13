@@ -15,7 +15,7 @@ type error<'responseData,'requestData> = {
   message: string
 }
 
-type adapter<'a> = config => Promise.t<response<'a>>
+type adapter<'a> = config => promise<response<'a>>
 type requestTransformer<'data, 'a, 'transformedData> = ('data, Js.t<'a>) => 'transformedData
 type responseTransformer<'data, 'transformedData> = 'data => 'transformedData
 type paramsSerializer<'params, 'serializedParams> = 'params => 'serializedParams
@@ -59,15 +59,15 @@ let makeConfig: (
   unit,
 ) => config
 
-let axios: (~url: string=?,~config: config=?,()) => Promise.t<response<'data>>
-let get: (~url: string, ~config: config=?, ()) => Promise.t<response<'responseData>>
-let post: (~url: string, ~data: 'requestData=?, ~config: config=?,()) => Promise.t<response<'responseData>>
-let request: (~config: config) => Promise.t<response<'responseData>>
-let head: (~url: string, ~config: config=?, ()) => Promise.t<response<'responseData>>
-let options: (~url: string, ~config: config=?, ()) => Promise.t<response<'responseData>>
-let put: (~url: string, ~data: 'requestData=?, ~config: config=?,()) => Promise.t<response<'responseData>>
-let delete: (~url: string, ~config: config=?, ()) => Promise.t<response<'responseData>>
-let patch: (~url: string, ~data: 'requestData=?, ~config: config=?, ()) => Promise.t<response<'responseData>>
+let axios: (~url: string=?,~config: config=?,()) => promise<response<'data>>
+let get: (~url: string, ~config: config=?, ()) => promise<response<'responseData>>
+let post: (~url: string, ~data: 'requestData=?, ~config: config=?,()) => promise<response<'responseData>>
+let request: (~config: config) => promise<response<'responseData>>
+let head: (~url: string, ~config: config=?, ()) => promise<response<'responseData>>
+let options: (~url: string, ~config: config=?, ()) => promise<response<'responseData>>
+let put: (~url: string, ~data: 'requestData=?, ~config: config=?,()) => promise<response<'responseData>>
+let delete: (~url: string, ~config: config=?, ()) => promise<response<'responseData>>
+let patch: (~url: string, ~data: 'requestData=?, ~config: config=?, ()) => promise<response<'responseData>>
 
-let useRequestInterceptor: ('config => Promise.t<'updatedConfig>) => unit
-let useResponseInterceptor: ('response => Promise.t<'updatedResponse>) => unit
+let useRequestInterceptor: ('config => promise<'updatedConfig>) => unit
+let useResponseInterceptor: ('response => promise<'updatedResponse>) => unit

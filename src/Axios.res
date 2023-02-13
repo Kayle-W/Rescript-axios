@@ -9,7 +9,7 @@ type response<'data> = {
     request: Js.Dict.t<string>
 }
 
-type adapter<'a> = config => Promise.t<response<'a>>
+type adapter<'a> = config => promise<response<'a>>
 type requestTransformer<'data, 'a, 'transformedData> = ('data, Js.t<'a>) => 'transformedData
 type responseTransformer<'data, 'transformedData> = 'data => 'transformedData
 type paramsSerializer<'params, 'serializedParams> = 'params => 'serializedParams
@@ -61,17 +61,17 @@ type error<'responseData,'requestData> = {
 }
 
 @module("axios")
-external axios1: (~url: string=?,~config: config=?,()) => Promise.t<response<'data>> = "default"
+external axios1: (~url: string=?,~config: config=?,()) => promise<response<'data>> = "default"
 
 type axiosMethods<'requestData, 'responseData> = {
-    get: (~url: string, ~config: config=?, ()) => Promise.t<response<'responseData>>,
-    post: (~url: string, ~data: 'requestData=?, ~config: config=?,()) => Promise.t<response<'responseData>>,
-    request: (~config: config) => Promise.t<response<'responseData>>,
-    head: (~url: string, ~config: config=?, ()) => Promise.t<response<'responseData>>,
-    options: (~url: string, ~config: config=?, ()) => Promise.t<response<'responseData>>,
-    put: (~url: string, ~data: 'requestData=?, ~config: config=?,()) => Promise.t<response<'responseData>>,
-    delete: (~url: string, ~config: config=?, ()) => Promise.t<response<'responseData>>,
-    patch: (~url: string, ~data: 'requestData=?, ~config: config=?, ()) => Promise.t<response<'responseData>>
+    get: (~url: string, ~config: config=?, ()) => promise<response<'responseData>>,
+    post: (~url: string, ~data: 'requestData=?, ~config: config=?,()) => promise<response<'responseData>>,
+    request: (~config: config) => promise<response<'responseData>>,
+    head: (~url: string, ~config: config=?, ()) => promise<response<'responseData>>,
+    options: (~url: string, ~config: config=?, ()) => promise<response<'responseData>>,
+    put: (~url: string, ~data: 'requestData=?, ~config: config=?,()) => promise<response<'responseData>>,
+    delete: (~url: string, ~config: config=?, ()) => promise<response<'responseData>>,
+    patch: (~url: string, ~data: 'requestData=?, ~config: config=?, ()) => promise<response<'responseData>>
 }
 
 @module("axios")
@@ -90,11 +90,11 @@ let axios = axios1
 
 
 type interceptorsResponse<'response,'updatedResponse> = {
-  use: ('response => Promise.t<'updatedResponse>) => unit
+  use: ('response => promise<'updatedResponse>) => unit
 }
 
 type interceptorsRequest<'config,'updatedConfig> = {
-  use: ('config => Promise.t<'updatedConfig>) => unit
+  use: ('config => promise<'updatedConfig>) => unit
 }
 
 type interceptors<'config,'updatedConfig,'response,'updatedResponse> = {
